@@ -10,9 +10,6 @@ a {
   color: #00B7FF;
 }
 
-div {
-  border: 1px solid black;
-}
 
 footer {
   background-color: gray;
@@ -25,18 +22,18 @@ footer {
 
 .dog-card {
   width: 80%;
-  border: 1px solid blue;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   max-height: 500px;
+  background: white;
+  width: 600px;
 }
 
 .dog-card img {
-  width: 80%;
-  max-width: 600px;
+  max-height: 300px;
 }
 
 #dog-details {
@@ -96,8 +93,8 @@ footer {
   justify-content: space-between;
   align-items: center;
 } 
+
 #no-yes > img {
-  display: inline;
   width: 96px;
 }
 
@@ -143,15 +140,19 @@ footer {
 #main {
   transition: margin-left .5s;
   padding: 20px;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: lightcyan;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
+@media screen and (max-width: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+  #no-yes { width: 200px }
+  #no-yes > img { width: 50px;}
+  .dog-card { width: 300px}
+  .dog-card > img { width: 200px; }
 }

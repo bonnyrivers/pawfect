@@ -1,4 +1,4 @@
-const Student = require('../models/student');
+const User = require('../models/user');
 
 module.exports = {
     index,
@@ -11,10 +11,11 @@ function index(req, res, next) {
   Shelters.find({})
   .exec(function(err, shelters) {
     if (err) return next(err);
-    res.render('/index', {
+    res.render('/', {
       shelters,
-      user: req.user,
+      user: req.user
     });
+    console.log(user)
   });
 }
 

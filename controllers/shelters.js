@@ -6,8 +6,7 @@ module.exports = {
 }
 
 function index(req, res, next) {
-
-    res.render('/shelters') {
+    res.render('/shelters', {
         shelters
-    }
+    });
 }

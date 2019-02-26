@@ -2,20 +2,21 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-require('./config/database')
-require('./config/passport')
-
 var session = require('express-session');
+var logger = require('morgan');
 var passport = require('passport');
 
 require('dotenv').config();
 
-var app = express();
+// connect to the MongoDB
+require('./config/database')
 
+// configure Passport
+require('./config/passport')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -31,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'WDIRocks!',  // to encrypt the cookie
   resave: false,
-  saveUnitialized: true
+  saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -39,6 +40,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
