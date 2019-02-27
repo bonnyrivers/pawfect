@@ -1,41 +1,46 @@
 <%- include('./partials/header') %>
-<div id="main">
+<div id="main container">
   <div class="card p-2 border-light">
-    <% if (petData.petfinder.pet.media.photos.photo[2]) {%>
-    <img class="card-img-top" alt="..." src="<%=petData.petfinder.pet.media.photos.photo[2].$t%>">
-    <% } else if (petData.petfinder.pet.media.photos.photo.length) { %>
-    <img class="card-img-top" alt="..." src="<%=petData.petfinder.pet.media.photos.photo[0].$t%>">
+    <% if (petData.media.photos.photo[2]) {%>
+    <img class="card-img-top" alt="..." src="<%=petData.media.photos.photo[2].$t%>">
+    <% } else if (petData.media.photos.photo.length) { %>
+    <img class="card-img-top" alt="..." src="<%=petData.media.photos.photo[0].$t%>">
     <% }  else { %>
     <img class="card-img-top" alt="..."src="https://png.pngtree.com/svg/20170918/a2ce9aa89e.png">
     <% } %>
     <div class="card-body">
-        <h5 class="card-title d-inline"><%= petData.petfinder.pet.name.$t %></h5>
-        <span id="main-deets"><%= petData.petfinder.pet.sex.$t %>, <%= petData.petfinder.pet.age.$t %></span><br>
+        <h5 class="card-title d-inline"><%=petData.name.$t%></h5>
+        <span id="main-deets"><%= petData.sex.$t %>, <%= petData.age.$t %></span><br>
         <ul class="list-group border-light">
           <li class="list-group-item">
             <span class="deets">City  </span>
-            <%= petData.petfinder.pet.contact.city.$t %>
+            <%= petData.contact.city.$t %>
           </li>
           <li class="list-group-item">
             <span class="deets">Zip  </span>
-            <%= petData.petfinder.pet.contact.zip.$t %>
+            <%= petData.contact.zip.$t %>
           </li>
-          <% if (petData.petfinder.pet.breeds.breed.length) {%>
+          <% if (petData.breeds.breed.length) {%>
           <li class="list-group-item">
             <span class="deets">Breed  </span>
-            <%= petData.petfinder.pet.breeds.breed[0].$t %>
+            <%= petData.breeds.breed[0].$t %>
           </li>
           <% } %>
         </ul>
       <div>
-        <a class="card-link" href="/show/<%=petData.petfinder.pet.id.$t%>">Details</a>
+        <a class="card-link" href="/show/<%=petData.id.$t%>">Details</a>
       </div>
     </div>
     <div id="no-yes">
         <a href="/"><img id="no" src="/images/no.png"></a>
-        <form class="save-button" method="post" action="/save/<%=petData.petfinder.pet.id.$t%>">
+        <form class="save-button" method="post" 
+              action="/save/<%=petData.id.$t%>">
           <!-- acts as a submit button! -->
-          <input type="image" src="/images/yes.png">
+          <input type="hidden" name="photo" value="<%=petData.media.photos.photo[2].$t%>">
+          <input type="hidden" name="age" value="<%= petData.age.$t %>">
+          <input type="hidden" name="name" value="<%= petData.name.$t %>">
+          <input type="hidden" name="sex" value="<%= petData.sex.$t %>">
+          <input type="image" src="/images/yes.png"> <!--submit-->
         </form> 
       </div>
     </div>

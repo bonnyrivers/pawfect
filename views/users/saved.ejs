@@ -1,55 +1,16 @@
 <%- include('../partials/header') %>
 
-<div id="main">
+<div class="card-group container">
 <% savedDogs.forEach(function (d) { %>
     <div class="card">
-        <img src="/images/yes-onclick.png">
+        <img class="card-img-top" src="<%=d.photo%>">
         <div class="card-body">
-            <h5 class="card-title"><%=d.id%></h5>
+            <h5 class="card-title"><%=d.name%></h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
 <%})%>
-<!-- 
-    <div id="dog-grid">
-        <div class="dog-grid-card" style="background: url()">
-            <img src="https://barkforce.com/wp-content/uploads/2017/09/fb-adoption.jpg">
-            <div class="dog-grid-card-details">
-                <h3>Name</h3>
-                <h3>Age</h3>
-                <h3>M/F</h3>
-                <a href="#">More Details</a>
-            </div>
-        </div>
-        <div class="dog-grid-card" style="background: url()">
-            <img src="https://barkforce.com/wp-content/uploads/2017/09/fb-adoption.jpg">
-            <div class="dog-grid-card-details">
-                <h3>Name</h3>
-                <h3>Age</h3>
-                <h3>M/F</h3>
-                <a href="#">More Details</a>
-            </div>
-         </div>
-        <div class="dog-grid-card" style="background: url()">
-            <img src="https://barkforce.com/wp-content/uploads/2017/09/fb-adoption.jpg">
-            <div class="dog-grid-card-details">
-                <h3>Name</h3>
-                <h3>Age</h3>
-                <h3>M/F</h3>
-                <a href="#">More Details</a>
-            </div>
-         </div>
-        <div class="dog-grid-card" style="background: url()">
-            <img src="https://barkforce.com/wp-content/uploads/2017/09/fb-adoption.jpg">
-            <div class="dog-grid-card-details">
-                <h3>Name</h3>
-                <h3>Age</h3>
-                <h3>M/F</h3>
-                <a href="#">More Details</a>
-            </div>
-         </div>
-    </div>
-</div> -->
+</div> 
 
 <%- include('../partials/footer') %>

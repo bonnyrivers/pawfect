@@ -4,16 +4,16 @@ var Schema = mongoose.Schema;
 var dogSchema = new Schema({
     name: String,
     age: {
-        type: Number,
+        type: String
     },
     sex: {
-        type: String,
+        type: String
     },
-    datePosted: {
-        type: Date
+    photo: {
+        type: String
     },
     id: {
-        type: Number
+        type: String
     }
 });
 

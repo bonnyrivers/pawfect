@@ -1,10 +1,5 @@
 
 
-.card {
-  width: 400px;
-  margin: auto;
-}
-
 ul {
   padding-left: 0px;
 }
@@ -12,7 +7,6 @@ ul {
 .no-yes {
   display: inline;
 }
-
 
 .main {
   display: flex;
@@ -32,7 +26,7 @@ ul {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black*/
+  background-color: #2A2D3F; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -65,11 +59,9 @@ body * {
 }
 .card {
   width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 20px;
 }
+
 .card-img-top {
   width: 200px;
 }
@@ -85,13 +77,14 @@ ul {
 }
 
 header {
-  background-color: palevioletred;
+  background-color: #5b618A;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
   height: 80px;
+  color: white;
 }
 .nav-button{
   float: left;
@@ -99,20 +92,30 @@ header {
 html {
   width: 100vw;
 }
+
 footer {
   margin: 10px 0 0 0;
-  padding-top: 20px;
-  background-color: pink;
+  padding: 20px;
+  background-color: #2A2D3F;
   height: 100px
 
 }
 #main-deets {
   float: right;
-  color: gray;
+  color: #5B507A;
 }
 .deets {
-  color: gray;
+  color: #5B507A;
 }
+h1, h3, h5 {
+  color: #2A2D3F;
+}
+
+
+li {
+  color: #2A2D3F;
+}
+
 @media screen and (max-width: 600px) {
   
 }

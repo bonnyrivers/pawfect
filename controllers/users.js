@@ -21,37 +21,30 @@ function index(req, res, next) {
 
 function saveDog(req, res) {
   if (req.user) {
-    req.user.savedDogs.push({id: req.params.id})
+    req.user.savedDogs.push({
+      id: req.params.id,
+      name: req.body.name,
+      photo: req.body.photo,
+      sex: req.body.sex,
+      age: req.body.age
+    });
     req.user.save();
-    console.log(req.user);
   }
   let options = {
     url: `http://api.petfinder.com/pet.getRandom?key=e4653e6431252bb0a55d474d2689f72b&animal=dog&output=basic&location=los%20angeles%20CA&format=json`,
   };
   request(options, function(err, response, body) {
-      var petData = JSON.parse(body);
+      let petfinderData = JSON.parse(body);
       res.render('index', { 
         title: 'pawfect',
         user: req.user,
-        petData
+        petData: petfinderData.petfinder.pet
       });
   });
 }
 
 function showSaved(req, res) {
   if (req.user) {
-  //   req.user.savedDogs.forEach(function(dogId) {
-  //     let options = {
-  //       url: `http://api.petfinder.com/pet.get?key=e4653e6431252bb0a55d474d2689f72b&id=${dogId}&format=json`,
-  //     };
-  //     request(options, function(err, response, body) {
-  //         let petData = JSON.parse(body);
-  //         userSavedDogs.push(petData);
-  //         console.log(userSavedDogs)
-  //     });
-  //   });
-  // }
-    console.log(req.user.savedDogs);
     res.render('users/saved', {
       title: 'Saved Dogs',
       user: req.user,
@@ -59,3 +52,14 @@ function showSaved(req, res) {
     })
   }
 }
+                  //   req.user.savedDogs.forEach(function(dogId) {
+                  //     let options = {
+                  //       url: `http://api.petfinder.com/pet.get?key=e4653e6431252bb0a55d474d2689f72b&id=${dogId}&format=json`,
+                  //     };
+                  //     request(options, function(err, response, body) {
+                  //         let petData = JSON.parse(body);
+                  //         userSavedDogs.push(petData);
+                  //         console.log(userSavedDogs)
+                  //     });
+                  //   });
+                  // }
