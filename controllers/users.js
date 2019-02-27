@@ -2,11 +2,10 @@ const User = require('../models/user');
 
 module.exports = {
     index,
-    addDog
+    saveDog
 };
 
 function index(req, res, next) {
-  console.log(req.query)
   // ADD A SORT KEY... AKA A FILTER PARAM FOR THE PUPSS
   Shelters.find({})
   .exec(function(err, shelters) {
@@ -15,14 +14,16 @@ function index(req, res, next) {
       shelters,
       user: req.user
     });
-    console.log(user)
   });
 }
 
-
-function addDog(req, res, next) {
-    req.user.savedDogs.push(req.body) 
-    req.user.save(function(err) {
-        res.redirect('/');
-    })
+function saveDog(req, res, next) {
+  // console.log(req.petData)
+  req.user.savedDogs.push("this is a doooggg")
+  console.log(req.user);
+  // req.user.savedDogs.push(req.petData)
+  res.redirect('/', {
+    user: req.user,
+    // title: `Saved ${req.petData.petfinder.pet.name}`
+  });
 }

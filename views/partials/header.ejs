@@ -2,15 +2,30 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-   
-</head>
+    <link href="https://fonts.googleapis.com/css?family=Mali|Questrial" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Karla|Open+Sans|Sigmar+One|Work+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script defer src="/javascripts/app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
   <body>
+    <header>
+      <span class="nav-button" onclick="openNav()">Menu</span>
+      <img class="logo" src="/images/paw-gray.png">
+      <div>
+      <% if (user) { %>
+        Welcome, <%= user.name %>
+      <%}%>
+      </div>
+    </header> 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
-        <a href="./">Find Dogs</a>
+        <a href="/">Find Dogs</a>
         <a href="#">Find Shelters</a>
-        <a href="./saved">Saved</a>
+        <a href="/saved">Saved</a>
         <% if (user) { %>
           <a href="/logout">Log Out</a>
         <% } else { %> 
@@ -19,7 +34,7 @@
       </div>
       
       <!-- Use any element to open the sidenav -->
-      <span onclick="openNav()">Menu</span>
+      
       
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 
@@ -38,4 +53,4 @@
           document.body.style.backgroundColor = "white";
       }
     </script>
-    <h1><%= title %></h1>  
+   

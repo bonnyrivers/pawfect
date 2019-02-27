@@ -3,14 +3,14 @@ var router = express.Router();
 var passport = require('passport');
 var request = require('request');
 
-/* GET home page. */
+
+/* GET home page and render dogs from petfinder API */
 router.get('/', function(req, res, next) {
   let options = {
-    url: `http://api.petfinder.com/pet.getRandom?key=e4653e6431252bb0a55d474d2689f72b&animal=dog&output=basic&location=90034&format=json`,
+    url: `http://api.petfinder.com/pet.getRandom?key=e4653e6431252bb0a55d474d2689f72b&animal=dog&output=basic&location=los%20angeles%20CA&format=json`,
   };
   request(options, function(err, response, body) {
       var petData = JSON.parse(body);
-      console.log(petData);
       res.render('index', { 
         title: 'pawfect',
         user: req.user,
@@ -24,9 +24,14 @@ router.get('/login', function(req, res, next) {
 });
 
 router.get('/saved', function(req, res, next) {
-  res.render('saved', {title: 'Saved Dogs'})
+  console.log(req.user)
+  res.render('saved', {
+    title: 'Saved Dogs',
+    user: req.user
+  })
 })
 
+// Google Authentication
 router.get('/auth/google', 
   passport.authenticate( 'google',
   { scope: ['email', 'profile'] }

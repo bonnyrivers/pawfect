@@ -1,101 +1,30 @@
-html {
-  height: 100%;
-}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: ;
+  
 }
 
-a {
-  color: #00B7FF;
-}
-
-
-footer {
-  background-color: gray;
-  margin-bottom: 0;
+.card {
+  width: 400px;
   margin: auto;
-  position: fixed;
-  height: 100px;
-  width: 100%;
 }
 
-.dog-card {
-  width: 80%;
-  padding: 20px;
+ul {
+  padding-left: 0px;
+}
+
+.no-yes {
+  display: inline;
+}
+
+
+.main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-height: 500px;
-  background: white;
-  width: 600px;
-}
-
-.dog-card img {
-  max-height: 300px;
-}
-
-#dog-details {
-  width: 80%;
-  text-align: left;
-  max-width: 600px;
-}
-
-#dog-grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.dog-grid-card > img {
-    object-fit: cover;
-    width:150px;
-    height:150px;
-}
-.dog-grid-card-details {
-  text-align: left;
-}
-
-.dog-grid-card { 
-  transition: opacity 1s;
-  display: inline;
-}
-
-.dog-grid-card:hover {
-  opacity: 0.5;
-}
-
-
-.dog-grid-card > img {
-  width: 70%;
-  height: 70%;
-}
-
-.dog-grid-card > a {
-  float: right;
-}
-
-.dog-grid-card {
-  width: 300px;
-  height: 300px;
-  border: 1px solid red;
-  margin: 30px;
+  transition: margin-left .5s;
   padding: 20px;
   text-align: center;
-}
-
-#no-yes {
-  width: 300px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-} 
-
-#no-yes > img {
-  width: 96px;
 }
 
 /* The side navigation menu */
@@ -122,7 +51,6 @@ footer {
   transition: 0.3s;
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
 }
@@ -135,24 +63,59 @@ footer {
   font-size: 36px;
   margin-left: 50px;
 }
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-  transition: margin-left .5s;
-  padding: 20px;
+body * {
+  border: none;
+}
+.card {
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: lightcyan;
+  margin-top: 20px;
+}
+.card-img-top {
+  width: 200px;
+}
+.card-body {
+  width: 300px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-width: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-  #no-yes { width: 200px }
-  #no-yes > img { width: 50px;}
-  .dog-card { width: 300px}
-  .dog-card > img { width: 200px; }
+ul {
+  padding-left: 0px;
+}
+.card-link {
+  float: right;
+}
+
+header {
+  background-color: palevioletred;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 80px;
+}
+.nav-button{
+  float: left;
+}
+html {
+  width: 100vw;
+}
+footer {
+  margin: 10px 0 0 0;
+  padding-top: 20px;
+  background-color: pink;
+  height: 100px
+
+}
+#main-deets {
+  float: right;
+  color: gray;
+}
+.deets {
+  color: gray;
+}
+@media screen and (max-width: 600px) {
+  
 }

@@ -12,7 +12,7 @@ var userSchema = new Schema({
         type: String,
         required: true 
     },
-    savedDogs: [{type: Schema.Types.ObjectId, ref: 'Dog'}]
+    savedDogs: [],
 }, {
     timestamps: true
 });
