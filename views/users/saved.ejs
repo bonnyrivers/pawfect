@@ -1,16 +1,17 @@
-<%- include('./partials/header') %>
+<%- include('../partials/header') %>
 
-<% user.savedDogs.forEach(function (d) { %>
 <div id="main">
+<% savedDogs.forEach(function (d) { %>
     <div class="card">
-        <img src="<%=d.petfinder.pet.photos.photo[2].$t%>" class="card-img-top" alt="...">
+        <img src="/images/yes-onclick.png">
         <div class="card-body">
-            <h5 class="card-title"><%=d.petfinder.pet.name.$t%></h5>
+            <h5 class="card-title"><%=d.id%></h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
-    <%})%>
+<%})%>
+<!-- 
     <div id="dog-grid">
         <div class="dog-grid-card" style="background: url()">
             <img src="https://barkforce.com/wp-content/uploads/2017/09/fb-adoption.jpg">
@@ -49,6 +50,6 @@
             </div>
          </div>
     </div>
-</div>
+</div> -->
 
-<%- include('./partials/footer') %>
+<%- include('../partials/footer') %>

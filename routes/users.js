@@ -4,7 +4,9 @@ var usersCtrl = require('../controllers/users');
 
 router.get('/', usersCtrl.index);
 
-router.post('/save', usersCtrl.saveDog);
+router.get('/saved', usersCtrl.showSaved);
+
+router.post('/save/:id', usersCtrl.saveDog);
 
 router.delete('/saved/:id', function(req, res, next) {
 

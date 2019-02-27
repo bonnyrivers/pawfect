@@ -13,6 +13,9 @@ var dogSchema = new Schema({
     },
     datePosted: {
         type: Date
+    },
+    id:{
+        type:Number
     }
 });
 

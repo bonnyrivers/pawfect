@@ -1,6 +1,21 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var dogSchema = new Schema({
+    name: String,
+    age: {
+        type: Number,
+    },
+    sex: {
+        type: String,
+    },
+    datePosted: {
+        type: Date
+    },
+    id: {
+        type: Number
+    }
+});
 
 var userSchema = new Schema({
     name: String,
@@ -12,7 +27,7 @@ var userSchema = new Schema({
         type: String,
         required: true 
     },
-    savedDogs: [],
+    savedDogs: [dogSchema],
 }, {
     timestamps: true
 });

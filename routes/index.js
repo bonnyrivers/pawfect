@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var request = require('request');
+var usersCtrl = require('../controllers/users');
 
 
 /* GET home page and render dogs from petfinder API */
@@ -19,17 +20,24 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/login', function(req, res, next) {
+router.get('/login', function(req, res) {
   res.render('login', { title: 'login'})
 });
 
-router.get('/saved', function(req, res, next) {
-  console.log(req.user)
-  res.render('saved', {
-    title: 'Saved Dogs',
-    user: req.user
-  })
-})
+
+// router.get('/saved', function(req, res) {
+//   console.log(req.user)
+//   if (req.user) {
+//     res.render('users/saved', {
+//       title: 'Saved Dogs',
+//       user: req.user
+//     })
+//   } else {
+//     res.render('login', {
+//       title: 'Log in to view saved pets!'
+//     })
+//   }
+// });
 
 // Google Authentication
 router.get('/auth/google', 
