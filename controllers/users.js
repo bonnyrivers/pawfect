@@ -52,14 +52,3 @@ function showSaved(req, res) {
     })
   }
 }
-                  //   req.user.savedDogs.forEach(function(dogId) {
-                  //     let options = {
-                  //       url: `http://api.petfinder.com/pet.get?key=e4653e6431252bb0a55d474d2689f72b&id=${dogId}&format=json`,
-                  //     };
-                  //     request(options, function(err, response, body) {
-                  //         let petData = JSON.parse(body);
-                  //         userSavedDogs.push(petData);
-                  //         console.log(userSavedDogs)
-                  //     });
-                  //   });
-                  // }

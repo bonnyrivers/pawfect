@@ -1,15 +1,15 @@
 <%- include('./partials/header') %>
-<div id="main container">
-  <div class="card p-2 border-light">
-    <% if (petData.media.photos.photo[2]) {%>
-    <img class="card-img-top" alt="..." src="<%=petData.media.photos.photo[2].$t%>">
-    <% } else if (petData.media.photos.photo.length) { %>
-    <img class="card-img-top" alt="..." src="<%=petData.media.photos.photo[0].$t%>">
-    <% }  else { %>
-    <img class="card-img-top" alt="..."src="https://png.pngtree.com/svg/20170918/a2ce9aa89e.png">
+<div class="main index-main">
+  <div class="card p-2" id="random-dog">
+    <div class="card-header">
+        <h5 class="card-title d-inline"><%=petData.name.$t%></h5>
+    </div>
+    <% if (petData.media.photos) {%>
+        <img class="card-img-top" alt="..." src="<%=petData.media.photos.photo[2].$t%>">
+      <% } else { %>
+      <img class="card-img-top" alt="..."src="https://png.pngtree.com/svg/20170918/a2ce9aa89e.png">
     <% } %>
     <div class="card-body">
-        <h5 class="card-title d-inline"><%=petData.name.$t%></h5>
         <span id="main-deets"><%= petData.sex.$t %>, <%= petData.age.$t %></span><br>
         <ul class="list-group border-light">
           <li class="list-group-item">
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div id="no-yes">
-        <a href="/"><img id="no" src="/images/no.png"></a>
+        <a href="/"><img id="no" src="/images/no.png" onclick="changeNo()""></a>
         <form class="save-button" method="post" 
               action="/save/<%=petData.id.$t%>">
           <!-- acts as a submit button! -->
@@ -40,9 +40,18 @@
           <input type="hidden" name="age" value="<%= petData.age.$t %>">
           <input type="hidden" name="name" value="<%= petData.name.$t %>">
           <input type="hidden" name="sex" value="<%= petData.sex.$t %>">
-          <input type="image" src="/images/yes.png"> <!--submit-->
+          <input type="image" src="/images/yes.png" onclick="changeYes()"> <!--submit-->
         </form> 
       </div>
     </div>
+    <div class="card">
+        <h5 class="card-header">About Pawfect</h5>
+        <div class="card-body">
+          <p class="card-text">Pawfect uses real data from shelters near you to show you dogs that are available for adoption today! 
+            By logging in with your Google account, you can save dogs that you like for later. Otherwise, details on each dog and how
+             to contact their shelter or owner are available by clicking the Details link.
+          </p>
+        </div>
+      </div>
 </div>
 <%- include('./partials/footer')%>

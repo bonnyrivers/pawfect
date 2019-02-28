@@ -11,24 +11,31 @@ function petDetails(req, res) {
         url: `http://api.petfinder.com/pet.getRandom?key=e4653e6431252bb0a55d474d2689f72b&animal=dog&output=basic&location=90034&format=json`,
     }
     request(options, function(err, response, body) {
-        var petData = JSON.parse(body);
+        var petfinderData = JSON.parse(body);
+        var petData = petfinderData.petfinder.pet;
+        res.render(`/`, {
+            petData
+        })
     });
 }
 
 function show(req, res) {
     let user = req.user;
-    let petId = req.params.id;
+    let petfinderId = req.params.id;
     let options = {
-        url: `${rootURL}pet.get?key=e4653e6431252bb0a55d474d2689f72b&id=${petId}&format=json`
+        url: `${rootURL}pet.get?key=e4653e6431252bb0a55d474d2689f72b&id=${petfinderId}&format=json`
     }
     request(options, function(err, response, body) {
-        var dogData = JSON.parse(body);
-    });
-    res.render('show', {
-        title: petId,
-        petId,
-        user,
-        dogData
+        let petfinderData = JSON.parse(body);
+        let dogData = petfinderData.petfinder.pet;
+        console.log(petfinderData)
+        let doggyName = petfinderData.petfinder.pet.name.$t;
+        res.render(`show`, {
+            title: doggyName,
+            petfinderId,
+            user,
+            dogData
+        });
     });
 }
 
