@@ -4,11 +4,29 @@ const request = require('request');
 module.exports = {
     index,
     saveDog,
-    showSaved
+    showSaved,
+    delete: deleteDog,
+    updateDescription,
+    showProfile
 };
 
+function showProfile(req, res) {
+  User.findOne({'_id': req.params.id}).exec(function(err, user) {
+    var name = user.name;
+    res.render('users/profile', {
+      title: `Welcome ${name}`,
+      user,
+    });
+  });
+}
+
+function updateDescription(req, res) {
+  User.findByIdAndUpdate(req.params.id, {'description': req.body}, function(err, user) {
+    if (err) res.render('users/profile/req.params.id');
+  })
+}
+
 function index(req, res, next) {
-  // ADD A SORT KEY... AKA A FILTER PARAM FOR THE PUPSS
   Shelters.find({})
   .exec(function(err, shelters) {
     if (err) return next(err);
@@ -51,4 +69,11 @@ function showSaved(req, res) {
       savedDogs: req.user.savedDogs
     })
   }
+}
+
+function deleteDog(req, res) {
+  req.user.savedDogs.id(req.params.id).remove();
+  req.user.save(function (err) {
+    res.redirect('/saved');
+  })
 }

@@ -27,6 +27,9 @@ var userSchema = new Schema({
         type: String,
         required: true 
     },
+    description: {
+        type: String
+    },
     savedDogs: [dogSchema],
 }, {
     timestamps: true

@@ -6,10 +6,12 @@ router.get('/', usersCtrl.index);
 
 router.get('/saved', usersCtrl.showSaved);
 
+router.get('/profile/:id', usersCtrl.showProfile);
+
+router.put('/profile/:id', usersCtrl.updateDescription);
+
 router.post('/save/:id', usersCtrl.saveDog);
 
-router.delete('/saved/:id', function(req, res, next) {
-
-})
+router.delete('/saved/:id', usersCtrl.delete)
 
 module.exports = router;

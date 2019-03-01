@@ -8,6 +8,9 @@
             <h5 class="card-title"><%=d.name %></h5>
             <p class="card-text"><%=d.sex %>, <%=d.age%></p>
             <a href="/show/<%=d.id%>" class="btn btn-primary">Details</a>
+            <form method="POST" action="/saved/<%= d._id %>?_method=DELETE">
+                <input type="submit" class="btn btn-danger" value="Delete" name="_method">
+            </form>
         </div>
     </div>
 <%})%>

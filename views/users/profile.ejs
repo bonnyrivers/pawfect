@@ -1,0 +1,34 @@
+<%- include('../partials/header') %>
+<main class="saved-main">
+    <div class="card p-2 dog-card">
+        <div class="card-body">
+            <h5 class="card-title"><%=title%></h5>
+            <ul class="list-group border-light m-2">
+                <li class="list-group-item">
+                    <span class="deets"> 
+               </span>
+                </li>
+                <li class="list-group-item">
+                    <span class="deets">email  </span>
+                    <%= user.email %>
+                </li>
+                <li class="list-group-item">
+                    <span class="deets">Liked dogs  </span>
+                    <%= user.savedDogs.length%>
+                </li>
+                <div class="card-body">
+                    <% if (user.description) { %>
+                    <p><%= user.description %></p>
+                    <%}%>
+                </div>
+                <form method="POST" action="/saved/<%= user._id %>?_method=PUT">
+                    <input type="text" placeholder="Describe yourself">
+                    <input type="submit" class="btn btn-primary" value="Update" name="_method">
+                </form>
+            </ul>
+            
+      
+        </div>
+    </div>
+</main>
+<%- include('../partials/footer') %>
