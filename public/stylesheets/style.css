@@ -155,8 +155,7 @@ li {
   align-items: center;
 }
 .saved-dog > img {
-  width: 200px;
-  padding: 20px;
+  width: 150px;
 }
 
 @media screen and (min-width: 576px) {
