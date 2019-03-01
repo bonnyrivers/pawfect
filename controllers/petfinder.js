@@ -7,6 +7,7 @@ module.exports = {
 }
 
 function petDetails(req, res) {
+    let user = req.user;
     let options = {
         url: `http://api.petfinder.com/pet.getRandom?key=e4653e6431252bb0a55d474d2689f72b&animal=dog&output=basic&location=90034&format=json`,
     }
@@ -14,7 +15,8 @@ function petDetails(req, res) {
         var petfinderData = JSON.parse(body);
         var petData = petfinderData.petfinder.pet;
         res.render(`/`, {
-            petData
+            petData,
+            user
         })
     });
 }

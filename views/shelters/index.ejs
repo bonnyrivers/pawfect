@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+<h3 class="h3 p-3">Nearest Animal Shelters</h3>
+<main class="saved-main">
+    <% sheltersArray.forEach(function(shelter) { %>
+    <div class="card p-3">
+        <div class="card-body">
+            <h5 class="card-title"><%=shelter.name.$t%></h5>
+            <p class="card-text"><%=shelter.address1.$t%><br>
+                <%=shelter.city.$t%>, 
+                <%=shelter.state.$t%>, 
+                <%=shelter.zip.$t%><br>
+            Phone: <%=shelter.phone.$t%><br>
+            <% if (shelter.email.$t) { %>
+            Email: <%=shelter.email.$t %></p>
+            <% } %>
+        </div>
+    </div>
+    <%})%>
+</main>
+<%- include('../partials/footer') %>
