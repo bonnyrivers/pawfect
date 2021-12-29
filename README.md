@@ -1,4 +1,4 @@
-#Pawfect Pet App
+# Pawfect Pet App
 Bonny Rivers <br>
 General Assembly <br>WDI Santa Monica  <br>
 February 2019
@@ -11,13 +11,13 @@ The goal of this project was to deploy an app that performs complete CRUD data o
 Pawfect is an app that helps user search for dogs that are up for adoption. The idea came from dating apps such as Tinder and Bumble where a user can swipe
 
 
-###Wireframes
+### Wireframes
 
 <img src="http://i66.tinypic.com/k4xtht.png" width="600px">
 
 
 
-###Screenshot
+### Screenshot
 
 <img src="http://i67.tinypic.com/5n1agl.png" width="600px">
 
@@ -29,19 +29,19 @@ Nav bar when user is logged in
 
 
 
-###Technologies Used
+### Technologies Used
 JavaScript, HTML, CSS, Express, Node.js, MongoDB, Mongoose, Postman, MongoDB Atlas, Google Fonts, Google Plus API, Petfinder.org API, OAuth Authentication 2.0, Visual Studio Code, GitHub, icons8.com, FreeSound.org, Chrome Dev Tools
 
 
 
-####Getting Started
+#### Getting Started
 
 [Pawfect Heroku App](https://pawfect-pet.herokuapp.com)
 
 [Pawfect Trello Board](https://trello.com/b/OGwj6Ol2/pawfect)
 
 
-###Code Snippet
+### Code Snippet
 ```javascript
 
 function show(req, res) {
@@ -67,7 +67,7 @@ function show(req, res) {
 
 An example of calling the Petfinder API
 
-###Unsolved Issues
+### Unsolved Issues
 My shelters page was added at the end and not loaded into my shelters model. I would like to implement a relationship between users, shelters, and dogs.
 
 On the user profile page, a user cannot currently update their description on their profile. 
